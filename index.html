@@ -125,5 +125,29 @@
         getUsersWithStatus();
       </script>
     </section>
+
+    <section>
+      <h2>Æfing 5: Búa til okkar eigin Promise og nota setTimeout</h2>
+      <input id="sek" type="number" placeholder="Fjöldi sekúndna" />
+      <button id="takki" onclick="runFunction()">Byrja</button>
+
+      <script>
+        function wait(seconds) {
+          return new Promise((resolve) => {
+            setTimeout(
+              () => resolve("Tíminn er liðinn - þetta er responsið úr promise"),
+              seconds * 1000
+            );
+          });
+        }
+
+        async function runFunction() {
+          const sek = document.getElementById("sek").value;
+          console.log(`Bíð í ${sek} sek`);
+          const skilabod = await wait(sek);
+          console.log(skilabod);
+        }
+      </script>
+    </section>
   </body>
 </html>
